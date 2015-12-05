@@ -1,0 +1,9 @@
+com/chumbok/poetry/PoemController.class
+com/chumbok/poetry/PoemImportController.class
+com/chumbok/poetry/PostFeedController.class
+com/chumbok/poetry/entity/Poem.class
+com/chumbok/poetry/entity/Book.class
+com/chumbok/poetry/entity/ImportedPoem.class
+com/chumbok/poetry/entity/Author.class
+com/chumbok/poetry/config/StaticResourceConfiguration.class
+com/chumbok/poetry/Application.class

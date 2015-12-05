@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header">
+    <title>
+      Poem List
+    </title>
+  </head>
+  <body>
+
+    <div th:replace="fragments/leftBar :: leftBar">
+    </div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+
+      <table class="pure-table pure-table-bordered" width="100%">
+        <thead>
+          <tr>
+            <th>
+              Poem
+            </th>
+            <th>
+              Author
+            </th>
+            <th>
+            
+            </th>
+          </tr>
+        </thead>
+        <tr th:each="poem : ${poems}">
+          <td th:text="${poem.title}" th:title="${poem.id}">
+          </td>
+          <td>
+            <span th:text="${poem.author.name}"></span> <a th:href="@{|/author/create?authorId=${poem.author.id}|}">edit</a>
+          </td>
+           <td>
+            <a th:href="@{|/create?poemId=${poem.id}|}">
+              edit
+            </a>
+            <a th:href="@{|/delete?poemId=${poem.id}|}">
+              delete
+            </a>
+          </td>
+        </tr>
+      </table>
+<br/><br/><br/>
+    </div>
+</body>
+</html>

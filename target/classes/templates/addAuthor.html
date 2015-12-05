@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header">
+    <title>
+      Add poem
+    </title>
+  </head>
+
+  <body>
+
+    <div th:replace="fragments/leftBar :: leftBar">
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+
+      <form 
+          action="#"
+          th:action="@{/author/create}"
+          th:object="${author}"
+          method="post"
+          enctype="multipart/form-data"
+          class="pure-form pure-form-aligned">
+
+
+
+        <fieldset>
+          <legend>
+            Add author
+          </legend>
+
+          <input id="id" type="hidden" th:field="*{id}" th:value="${author.id}" />
+
+          <div class="pure-control-group">
+            <label for="name">
+              Name
+            </label>
+            <input id="name" th:field="*{name}" th:value="${author.name}" />
+          </div>
+
+          <div class="pure-control-group">
+            <label for="profileImage">
+              Image
+            </label>
+            <input id="profileImage" type="file" name="profileImage" />
+          </div>
+
+          <div align="center">
+            <button type="submit" class="pure-button pure-button-primary">
+              Submit
+            </button>
+          </div>
+
+        </fieldset>
+      </form>
+
+
+    </div>
+  </body>
+</html>

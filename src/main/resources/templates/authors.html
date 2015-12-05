@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header">
+  </head>
+  <body>
+
+    <div th:replace="fragments/leftBar :: leftBar">
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+
+      <table class="pure-table pure-table-bordered" width="100%">
+        <thead>
+          <tr>
+            <th>
+              Author
+            </th>
+            <th>
+
+            </th>
+          </tr>
+        </thead>
+        <tr th:each="author : ${authors}">
+          <td>
+            <img 
+                th:if="${author.currentProfilePicUrl != null}"
+                th:src="@{|/img/${author.currentProfilePicUrl}|}"
+                height="32"
+                width="32"
+                style="vertical-align:middle"/>
+
+            <span th:text="${author.name}" style="vertical-align:middle;line-height:32px">
+            </span>
+          </td>
+          <td>
+            <a th:href="@{|/author/create?authorId=${author.id}|}">
+              edit
+            </a>
+            <a th:href="@{|/author/delete?authorId=${author.id}|}">
+              delete
+            </a>
+          </td>
+        </tr>
+      </table>
+<br/><br/><br/>
+    </div>
+  </body>
+</html>
