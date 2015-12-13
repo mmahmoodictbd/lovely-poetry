@@ -1,5 +1,7 @@
 package com.chumbok.poetry.dto;
 
+import org.joda.time.DateTime;
+
 import com.chumbok.poetry.entity.Poem;
 
 public class FeedItem {
@@ -12,6 +14,7 @@ public class FeedItem {
 	private String imageUrl;
 	private String profilePicUrl;
 	private String timeStamp;
+	private DateTime lastUpdated;
 
 	public FeedItem(Poem poem) {
 		this.id = poem.getId();
@@ -22,6 +25,10 @@ public class FeedItem {
 		this.imageUrl = null;
 		this.profilePicUrl = poem.getAuthor().getCurrentProfilePicUrl();
 		this.timeStamp = null;
+		this.lastUpdated = poem.getLastUpdated().getMillis() > poem.getAuthor()
+				.getLastUpdated().getMillis()
+						? poem.getLastUpdated()
+						: poem.getAuthor().getLastUpdated();
 	}
 
 	public long getId() {
@@ -88,12 +95,21 @@ public class FeedItem {
 		this.timeStamp = timeStamp;
 	}
 
+	public DateTime getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(DateTime lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
+
 	@Override
 	public String toString() {
 		return "FeedItem [id=" + id + ", authorId=" + authorId + ", authorName="
 				+ authorName + ", desc=" + desc + ", descBodyUrl=" + descBodyUrl
 				+ ", imageUrl=" + imageUrl + ", profilePicUrl=" + profilePicUrl
-				+ ", timeStamp=" + timeStamp + "]";
+				+ ", timeStamp=" + timeStamp + ", lastUpdated=" + lastUpdated
+				+ "]";
 	}
 
 }

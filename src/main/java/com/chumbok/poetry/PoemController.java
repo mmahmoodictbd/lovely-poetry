@@ -1,5 +1,6 @@
 package com.chumbok.poetry;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -40,6 +41,7 @@ public class PoemController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String create(@ModelAttribute Poem poem) {
 
+		poem.setLastUpdated(new DateTime());
 		poemRepository.save(poem);
 		return "redirect:/list";
 	}

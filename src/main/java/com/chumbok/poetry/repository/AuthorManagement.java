@@ -71,8 +71,11 @@ public class AuthorManagement {
 			String filepath = new DateTime().toString("ddMMyy") + File.separator
 					+ fileName;
 			author.setCurrentProfilePicUrl(filepath);
+			
+			
 		}
 
+		author.setLastUpdated(new DateTime());
 		authorRepository.save(author);
 		return author;
 	}

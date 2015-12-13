@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 
+import org.joda.time.DateTime;
 import org.springframework.util.Assert;
 
 @Entity
@@ -27,6 +28,12 @@ public class Author {
 	@CollectionTable(name = "Author_ProfilePicUrls", joinColumns = @JoinColumn(name = "author_id") )
 	@Column(name = "profilePicUrl")
 	private Set<String> profilePicUrls;
+
+	private DateTime lastUpdated;
+
+	public Author() {
+		this.lastUpdated = new DateTime();
+	}
 
 	public Long getId() {
 		return id;
@@ -61,11 +68,19 @@ public class Author {
 		this.profilePicUrls = profilePicUrls;
 	}
 
+	public DateTime getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(DateTime lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
+
 	@Override
 	public String toString() {
 		return "Author [id=" + id + ", name=" + name + ", currentProfilePicUrl="
 				+ currentProfilePicUrl + ", profilePicUrls=" + profilePicUrls
-				+ "]";
+				+ ", lastUpdated=" + lastUpdated + "]";
 	}
 
 }

@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
+import org.joda.time.DateTime;
+
 @Entity
 public class Poem {
 
@@ -46,6 +48,12 @@ public class Poem {
 	private String reference;
 	private String region;
 	private String year;
+
+	private DateTime lastUpdated;
+	
+	public Poem() {
+		this.lastUpdated = new DateTime();
+	}
 
 	public Long getId() {
 		return id;
@@ -135,13 +143,20 @@ public class Poem {
 		this.year = year;
 	}
 
+	public DateTime getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(DateTime lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
 	@Override
 	public String toString() {
 		return "Poem [id=" + id + ", title=" + title + ", lines=" + lines
 				+ ", author=" + author + ", book=" + book + ", keywords="
 				+ keywords + ", classification=" + classification + ", period="
 				+ period + ", reference=" + reference + ", region=" + region
-				+ ", year=" + year + "]";
+				+ ", year=" + year + ", lastUpdated=" + lastUpdated + "]";
 	}
 
 }

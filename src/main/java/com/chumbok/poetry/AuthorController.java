@@ -39,6 +39,7 @@ public class AuthorController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String create(@ModelAttribute Author author,
 			@RequestParam("profileImage") MultipartFile profileImageFile) {
+		
 		authorManagement.saveAuthor(author, profileImageFile);
 		return "redirect:/author/list";
 	}

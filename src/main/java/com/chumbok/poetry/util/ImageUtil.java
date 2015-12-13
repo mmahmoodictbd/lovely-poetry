@@ -1,7 +1,9 @@
 package com.chumbok.poetry.util;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
@@ -12,7 +14,9 @@ public class ImageUtil {
 	public static BufferedImage readImageFromMpf(MultipartFile mpf)
 			throws IOException {
 
-		BufferedImage src = ImageIO.read(mpf.getInputStream());
+		InputStream in = new ByteArrayInputStream(mpf.getBytes());
+		
+		BufferedImage src = ImageIO.read(in);
 
 		BufferedImage newImage = new BufferedImage(src.getWidth(),
 				src.getHeight(), BufferedImage.TYPE_INT_RGB);
