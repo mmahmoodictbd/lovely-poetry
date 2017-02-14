@@ -29,7 +29,7 @@ public class PostFeedController {
 			@RequestParam(value = "page", required = false, defaultValue = "1") int pageNo,
 			HttpServletRequest request, HttpServletResponse response) {
 		
-		response.setHeader("max-age", "0");
+		//response.setHeader("max-age", "0");
 
 		List<FeedItem> items = new ArrayList<FeedItem>();
 		List<Poem> poems = poemRepo.findAll(new PageRequest(pageNo, 20));

@@ -9,6 +9,7 @@ public class FeedItem {
 	private long id;
 	private long authorId;
 	private String authorName;
+	private String title;
 	private String desc;
 	private String descBodyUrl;
 	private String imageUrl;
@@ -20,6 +21,7 @@ public class FeedItem {
 		this.id = poem.getId();
 		this.authorId = poem.getAuthor().getId();
 		this.authorName = poem.getAuthor().getName();
+		this.title = poem.getTitle();
 		this.desc = poem.getLines();
 		this.descBodyUrl = null;
 		this.imageUrl = null;
@@ -103,13 +105,20 @@ public class FeedItem {
 		this.lastUpdated = lastUpdated;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	@Override
 	public String toString() {
 		return "FeedItem [id=" + id + ", authorId=" + authorId + ", authorName="
-				+ authorName + ", desc=" + desc + ", descBodyUrl=" + descBodyUrl
-				+ ", imageUrl=" + imageUrl + ", profilePicUrl=" + profilePicUrl
-				+ ", timeStamp=" + timeStamp + ", lastUpdated=" + lastUpdated
-				+ "]";
+				+ authorName + ", title=" + title + ", desc=" + desc
+				+ ", descBodyUrl=" + descBodyUrl + ", imageUrl=" + imageUrl
+				+ ", profilePicUrl=" + profilePicUrl + ", timeStamp="
+				+ timeStamp + ", lastUpdated=" + lastUpdated + "]";
 	}
-
 }
