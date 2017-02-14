@@ -4,7 +4,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* This is the backend for Android App (https://bitbucket.org/mmahmoodictbd/daily-poetry)
+* This is the backend for Android App (https://github.com/mmahmoodictbd/lovely-poetry/y)
 
 ### How do I get set up? ###
 
